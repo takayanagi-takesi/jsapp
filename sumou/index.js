@@ -9,8 +9,9 @@ const answers = [
 const correct = 'はくほう';
 
 // console.log(document.getElementById('js-question').textContent);
-const button = document.getElementsByTagName('button');
+const $button = document.getElementsByTagName('button');
 
+// クイズの問題文、選択肢を定義する
 const setupQuiz = () => {
   document.getElementById('js-question').textContent = question;
   let buttonIndex = 0;
@@ -18,42 +19,65 @@ const setupQuiz = () => {
   // button[1].textContent = answers[1];
   // button[2].textContent = answers[2];
   // button[3].textContent = answers[3];   ⇓⇓⇓⇓
-  let buttonLength = button.length;
+  let buttonLength = $button.length;
   while (buttonIndex < buttonLength) {
-    button[buttonIndex].textContent = answers[buttonIndex];
+    $button[buttonIndex].textContent = answers[buttonIndex];
     buttonIndex++; 
 }};
 
 setupQuiz();
 
-// ぼたんをクリックしたら正誤判定
-button[0].addEventListener('click', (e) => {
-  if (correct === e.target.textContent) {
-    window.alert('　○　せいかい！！');
+const clickHandler = (e) => {
+  if (orrect === e.target.textContent) {
+  window.alert('　○　せいかい！！');
   } else {
-    window.alert('ざんねん。。。がんばれ！');
+  window.alert('ざんねん。。。がんばれ！');
   }
+
+
+$button[0].addEventListener('click', (e) => {
+  clickHandler(e);
 });
-button[1].addEventListener('click', (e) => {
-  if (correct === e.target.textContent) {
-    window.alert('　○　せいかい！！');
-  } else {
-    window.alert('ざんねん。。。がんばれ！');
-  }
+$button[1].addEventListener('click', (e) => {
+  clickHandler(e);
 });
-button[2].addEventListener('click', (e) => {
-  if (correct === e.target.textContent) {
-    window.alert('　○　せいかい！！');
-  } else {
-    window.alert('ざんねん。。。がんばれ！');
-  }
+$button[2].addEventListener('click', (e) => {
+  clickHandler(e);
 });
-button[3].addEventListener('click', (e) => {
-  if (correct === e.target.textContent) {
-    window.alert('　○　せいかい！！');
-  } else {
-    window.alert('ざんねん。。。がんばれ！');
-  }
+$button[3].addEventListener('click', (e) => {
+  clickHandler(e);
+});
+
+
+// // ぼたんをクリックしたら正誤判定
+// $button[0].addEventListener('click', (e) => {
+//   if (correct === e.target.textContent) {
+//       // 　　　　　　$button[]
+//     window.alert('　○　せいかい！！');
+//   } else {
+//     window.alert('ざんねん。。。がんばれ！');
+//   }
+// });
+// $button[1].addEventListener('click', (e) => {
+//   if (correct === e.target.textContent) {
+//     window.alert('　○　せいかい！！');
+//   } else {
+//     window.alert('ざんねん。。。がんばれ！');
+//   }
+// });
+// $button[2].addEventListener('click', (e) => {
+//   if (correct === e.target.textContent) {
+//     window.alert('　○　せいかい！！');
+//   } else {
+//     window.alert('ざんねん。。。がんばれ！');
+//   }
+// });
+// $button[3].addEventListener('click', (e) => {
+//   if (correct === e.target.textContent) {
+//     window.alert('　○　せいかい！！');
+//   } else {
+//     window.alert('ざんねん。。。がんばれ！');
+//   }
 
   quizIndex++;
 
@@ -62,8 +86,8 @@ button[3].addEventListener('click', (e) => {
   } else {
     window.alert('終了！あなたの正解は' + score + '/' + quizLength + 'です！');
   }
-});
 
+};
 
 
 let score = 0;
