@@ -1,4 +1,5 @@
-const question = '『白鵬』ただしいのはどれ？';
+const question = `『白鵬』ただしいのはどれ？`
+
 const answers = [
   'はくほお',
   'はくほう',
@@ -53,4 +54,16 @@ button[3].addEventListener('click', (e) => {
   } else {
     window.alert('ざんねん。。。がんばれ！');
   }
+
+  quizIndex++;
+
+  if (quizIndex < quizLength) {
+    setupQuiz();
+  } else {
+    window.alert('終了！あなたの正解は' + score + '/' + quizLength + 'です！');
+  }
 });
+
+
+
+let score = 0;
