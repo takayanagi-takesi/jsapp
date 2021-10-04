@@ -1,7 +1,8 @@
 const quiz = [
   {
-    question:'『白鵬』ただしいのはどれ？',
-    answers:[ 'はくほお', 'はくほう', 'ほほほほう', 'はっくほう'],
+    question: '『白鵬』ただしいのはどれ？',
+    outGazou: '98ce2_1581_a916d915da25ab3cc2989e86f75fff91.jpg',
+    answers: [ 'はくほお', 'はくほう', 'ほほほほう', 'はっくほう'],
     correct: 'はくほう'
   },{
     question: '『鶴竜』ただしいのはどれ？',
@@ -38,6 +39,7 @@ const buttonLength = button.length;
 // クイズの問題文、選択肢を定義する
 const setupQuiz = () => {
   document.getElementById('js-question').textContent = quiz[quizIndex].question;
+  document.getElementById('gazou').innerHTML = quiz[quizIndex].outGazou;
   let buttonIndex = 0;
   // button[0].textContent = answers[0];
   // button[1].textContent = answers[1];
@@ -46,7 +48,9 @@ const setupQuiz = () => {
   // let buttonLength = $button.length;
   // ↑buttonLengthにbutton[]を代入
   while (buttonIndex < buttonLength) {
+    // shuffle(answers);
     button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
+
     buttonIndex++; 
 }};
 
@@ -67,9 +71,13 @@ const clickHandler = (e) => {
     setupQuiz(); 
   } else {
   // 問題が残っていなかったら実行
-    window.alert('やおきくんおつかれさまでした！！あなたのせいかいすうは' + quizLength + 'もんちゅう' + score + 'もんのせいかいです！');
-  }
+    document.getElementById('kekka').innerHTML = 
+    `やおきくんおつかれさまでした！！ <br>
+    やおきくんのせいかいすうは<br>
+    ${quizLength}もんちゅう${score}もんのせいかいです！`;
+ 
 
+  }
 };
 
 let handlerIndex = 0;
@@ -135,8 +143,3 @@ while (handlerIndex < buttonLength) {
 //   } else {
 //     window.alert('終了！あなたの正解は' + score + '/' + quizLength + 'です！');
 //   }
-
-
-
-
-
