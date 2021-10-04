@@ -15,8 +15,10 @@ const quiz = [
 ];
 
 // quizがある限り実行、０から開始を指定
+// const $window = window;
 const quizLength = quiz.length;
 let quizIndex = 0;
+let score = 0;
 
 // １問目の基本文法。（一番上の基礎）
 // const question = `『白鵬』ただしいのはどれ？`
@@ -30,8 +32,8 @@ let quizIndex = 0;
 // const correct = 'はくほう';
 
 // console.log(document.getElementById('js-question').textContent);
-const $button = document.getElementsByTagName('button');
-let buttonLength = $button.length;
+const button = document.getElementsByTagName('button');
+const buttonLength = button.length;
 
 // クイズの問題文、選択肢を定義する
 const setupQuiz = () => {
@@ -44,7 +46,7 @@ const setupQuiz = () => {
   // let buttonLength = $button.length;
   // ↑buttonLengthにbutton[]を代入
   while (buttonIndex < buttonLength) {
-    $button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
+    button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
     buttonIndex++; 
 }};
 
@@ -53,19 +55,33 @@ setupQuiz();
 const clickHandler = (e) => {
   if (quiz[quizIndex].correct === e.target.textContent) {
   window.alert('　○　せいかい！！');
+  score++;
   } else {
   window.alert('ざんねん。。。がんばれ！');
   }
+
+  quizIndex++;
+
+  if (quizIndex < quizLength) {
+    // 問題が残ってたら実行
+    setupQuiz(); 
+  } else {
+  // 問題が残っていなかったら実行
+    window.alert('やおきくんおつかれさまでした！！あなたのせいかいすうは' + quizLength + 'もんちゅう' + score + 'もんのせいかいです！');
+  }
+
 };
 
 let handlerIndex = 0;
 // const buttonLength = $button.length;
 while (handlerIndex < buttonLength) {
-  $button[0].addEventListener('click', (e) => {
+  button[handlerIndex].addEventListener('click', (e) => {
     clickHandler(e);
+
   });
   handlerIndex++;
-}
+
+};
 
 
 // $button[0].addEventListener('click', (e) => {
@@ -114,13 +130,13 @@ while (handlerIndex < buttonLength) {
 
   // quizIndex++;
 
-  if (quizIndex < quizLength) {
-    setupQuiz();
-  } else {
-    window.alert('終了！あなたの正解は' + score + '/' + quizLength + 'です！');
-  }
+//   if (quizIndex < quizLength) {
+//     setupQuiz();
+//   } else {
+//     window.alert('終了！あなたの正解は' + score + '/' + quizLength + 'です！');
+//   }
 
 
 
 
-let score = 0;
+
