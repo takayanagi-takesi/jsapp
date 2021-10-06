@@ -1,19 +1,27 @@
 const quiz = [
   {
+    question: '『朝青龍』ただしいのはどれ？',
+    outGazou: '98549b9a7a9664a15201fdca48739031.jpg',
+    answers: ['あさりょうりゅう', 'あさしようりゆう', 'あさしょうりゅう', 'あさしょうりゆう'],
+    correct: 'あさしょうりゅう'
+  }, {
     question: '『白鵬』ただしいのはどれ？',
     outGazou: '98ce2_1581_a916d915da25ab3cc2989e86f75fff91.jpg',
     answers: [ 'はくほお', 'はくほう', 'ほほほほう', 'はっくほう'],
     correct: 'はくほう'
   }, {
     question: '『鶴竜』ただしいのはどれ？',
+    outGazou: '8e664b6152522dea69dc4a00ada83d1f.webp',
     answers: ['かくりゆう', 'はくりゅう', 'かくりゅ', 'かくりゅう'],
     correct: 'かくりゅう'
   }, {
     question: '『照ノ富士』ただしいのはどれ？',
+    outGazou: 'スクリーンショット 2021-10-06 19.26.50.png',
     answers: ['てるのふし', 'ですのふじ', 'てるのふじ', 'てるのぶじ'],
     correct: 'てるのふじ'
   }, {
     question: '『正代』ただしいのはどれ？',
+    outGazou: '51490c80.jpg',
     answers: ['しょうだい', 'じょうたい', 'しょうたい', 'しようだい'],
     correct: 'しょうだい'
   }
@@ -43,7 +51,7 @@ const buttonLength = button.length;
 // クイズの問題文、選択肢を定義する
 const setupQuiz = () => {
   document.getElementById('js-question').textContent = quiz[quizIndex].question;
-  document.getElementById('gazou').innerHTML = quiz[quizIndex].outGazou;
+  document.getElementById('gazou').src = quiz[quizIndex].outGazou;
   let buttonIndex = 0;
   // button[0].textContent = answers[0];
   // button[1].textContent = answers[1];
@@ -51,9 +59,20 @@ const setupQuiz = () => {
   // button[3].textContent = answers[3];   ⇓⇓⇓⇓
   // let buttonLength = $button.length;
   // ↑buttonLengthにbutton[]を代入
+  // const shuffle = ([...answers]) => {
+  //   for (let i = answers.length - 1; i >= 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [answers[i], answers[j]] = [answers[j], answers[i]];
+  //   }
+  //   return answers;
+  // }
+  // shuffle(answers);
+
   while (buttonIndex < buttonLength) {
-    // shuffle(answers);
+
     button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
+    // answer = answers[buttonIndex];
+    // arrayShuffle(answer);
 
     buttonIndex++; 
 }};
