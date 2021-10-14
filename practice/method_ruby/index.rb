@@ -29,3 +29,18 @@ puts disp_sum(2000, 20)
 puts disp_sum(1000, 20)
 puts disp_sum(2000, -10)
 puts disp_sum()
+
+class Car
+  def color
+    @color
+  end
+
+  def color=(color)
+    @color = color
+  end
+end
+
+  car = Car.new
+
+  car.color = "red"
+  puts car.color
