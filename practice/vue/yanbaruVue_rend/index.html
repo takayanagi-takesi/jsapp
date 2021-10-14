@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <title>Vue練習</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="light = !light">ON/OFF</button>
+    <p v-if="light">点灯</p>
+    <p v-show="light">点灯（V-show）・・・</p>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
