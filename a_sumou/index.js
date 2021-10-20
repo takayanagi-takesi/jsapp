@@ -68,25 +68,26 @@ const setupQuiz = () => {
   // }
   // shuffle(answers);
 
+function arrayShuffle(array) {
+  for (var i = (array.length - 1); 0 < i; i--) {
+
+    // 0〜(i+1)の範囲で値を取得
+    var r = Math.floor(Math.random() * (i + 1));
+
+    // 要素の並び替えを実行
+    var tmp = array[i];
+    array[i] = array[r];
+    array[r] = tmp;
+  }
+  return array;
+
+}
+
   while (buttonIndex < buttonLength) {
-    function arrayShuffle(array) {
-      for (var i = (array.length - 1); 0 < i; i--) {
-
-        // 0〜(i+1)の範囲で値を取得
-        var r = Math.floor(Math.random() * (i + 1));
-
-        // 要素の並び替えを実行
-        var tmp = array[i];
-        array[i] = array[r];
-        array[r] = tmp;
-      }
-      return array;
-      
-    }
     // console.log(quiz[quizIndex].answers[buttonIndex].arrayShuffle(array));
     // button[buttonIndex].textContent = Math.floor(Math.random() * (quiz[quizIndex].answers[buttonIndex]));
     // arrayShuffle(button[buttonIndex].textContent)
-    arrayShuffle(quiz[quizIndex].answers[buttonIndex]);
+    arrayShuffle(quiz[quizIndex].answers);
     button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
     // arrayShuffle() = button[buttonIndex].textContent;
     // answer = answers[buttonIndex];
